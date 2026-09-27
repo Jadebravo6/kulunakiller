@@ -1,0 +1,114 @@
+INVENTAIRE DECOR STAGE_01 (réel — pas inventé)
+==============================================
+Ce que stage_01 utilise vraiment dans stage_elements.
+Pour stage_02 : même types de pièces, art différent, dossiers catégories déjà créés.
+Dossiers nommés (chicken_king, tax_man_area…) = contenu spécifique stage_01.
+
+--- SCENES .tscn (modules réutilisables) ---
+skyboxes/skybox.tscn
+buildings/walls/brick_wall/brick_wall.tscn (+ .gd + .tres)
+buildings/walls/stone_wall/stone_wall.tscn
+buildings/chicken_king/chicken_king.tscn (+ billboard)
+buildings/signs/love_yourself/love_yourself_sign.tscn
+decorations/lantern/lanterns.tscn
+decorations/christmas_lights/christmas_lights.tscn
+street_poles/lamp_poles/lamp_pole.tscn (+ .gd)
+gates/tori_gate/tori_gate.tscn
+tax_man_area/brick_gate/dirty_brick_wall_gate.tscn (+ .gd + anim)
+tax_man_area/tax_man_throne.tscn
+
+--- SKYBOXES ---
+area_1_skybox_1_0.png … _1_1 _1_2 _1_3 _1_5
+skybox_default_texture1d.tres
+
+--- PAVEMENT ---
+street_revised_straight.png
+street_revised_curved.png
+area_2_crosswalk.png
+tax_man_streetlines.png
+
+--- SIDEWALK ---
+sidewalk_revised_0.png / _1 / _2
+sidewalk_curve_50.png
+
+--- BUILDINGS (racine) ---
+cityscape_00.png
+area_2_fire_tiger_steakhouse_all.png
+area_2_java_bean_dream_all.png
+
+--- BUILDINGS/DOORS ---
+door_1_revised_new_50.png
+door_2_revised_50.png
+door_3_50.png
+
+--- BUILDINGS/WINDOWS ---
+standard/windows_1_1_50 … _1_5_50.png
+narrow/window_2.png
+
+--- BUILDINGS/PIPES ---
+drainpipe_body.png
+drainpipe_exit.png
+
+--- BUILDINGS/FOSTER_MART ---
+area_2_foster_mart_store_all.png
+area_2_foster_mart_sign.png
+area_2_rocks_revised.png
+
+--- BUILDINGS/CHICKEN_KING/PNGS ---
+chicken_king_base / top / front_banner / billboard / window_covers
+spot_lights / spot_lights_pin_light / spot_lights_wite_light
+
+--- BUILDINGS/SIGNS ---
+anime_girl/ posters (aqua, blue, orange, pink, purple, red)
+love_yourself/pngs/ (base, lights_00–03, lights_base, shimmer_00–02, wink)
+
+--- BUILDINGS/WALLS ---
+brick_wall/brick_pattern_grayscale.png
+stone_wall/area_2_stonewall.png
+
+--- DECORATIONS ---
+area_2_bamboo1_2.png
+lantern/lanterns_1_50.png, lanterns_2_50.png
+christmas_lights/christmas_lights_1_50.png, christams_lights_2_50.png
+
+--- FENCE ---
+chainlink_fence_revised__00 / __01 / __02.png
+chainlink_fence_middle_pole.png
+
+--- GATES/TORI_GATE ---
+tori_gate_back.png
+tori_gate_front.png
+
+--- STREET_POLES ---
+telephone_pole_revised_1_50.png
+metal_post.png
+lamp_poles/streetlamp_revised_2_00_50.png, _2_01_50.png, streetlamp_light_map.png
+post_box/postbox_clean.png, postbox_tagged.png
+
+--- VENDING_MACHINES ---
+clean blue / red / yellow
+tags_separated_1 / 2 / 3
+
+--- TAX_MAN_AREA (zone finale stage_01 uniquement) ---
+tax_man_back_brick_wall_dirty.png
+tax_man_windows.png
+tax_man_tree_leftside.png / tax_man_tree_rightside.png
+tax_man_black_marble.png
+tax_man_floor_chess.png
+tax_man_pilar_leftside.png / tax_man_pilar_Rightside.png
+tax_man_throne_revised.png
+tax_man_wall_gate.png
+brick_gate/ brick_gate_back, brick_gate_front, tax_man_doors_1, tax_man_doors_2
+
+--- SCRIPTS STAGE_01 (hors stage_elements) ---
+day_cycle_modulate.gd
+stage01_skybox.gd
+tax_man_room_light.gd
+hard_light.gdshader
+
+--- OU CA SE BRANCHE DANS LA SCENE (stage_01) ---
+Background/SkyboxLayer     → skybox + cityscape
+Background/                → bâtiments, rue, trottoir, fence, shops (sprites)
+Level/Objects/             → tori_gate, tax_man_throne, dirty_brick_wall_gate (y_sort)
+Foreground/                → telephone poles (même assets street_poles)
+Level/Collisions/          → lane Y seulement (PAS le décor)

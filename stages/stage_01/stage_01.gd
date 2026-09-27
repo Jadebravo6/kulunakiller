@@ -49,7 +49,7 @@ func _on_fight_2_spawner_all_waves_completed() -> void:
 
 
 func _on_tax_man_tree_exited() -> void:
-	_end_screen.open_end_screen(true)
+	ScreenTransitions.transition_to_scene("res://stages/stage_02/stage_02.tscn")
 
 
 func _on_fight_4_player_detector_player_detected() -> void:

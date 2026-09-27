@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Theme" uid="uid://brlect5oi7d4w" path="res://ui/_base/theme_template.tres" id="1_theme"]
+[ext_resource type="Script" path="res://ui/level_select/level_select.gd" id="2_script"]
+[ext_resource type="Texture2D" uid="uid://d1km5hwxdeda5" path="res://ui/_base/pngs/menu_color_stripes.png" id="3_stripes"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1201.0
+offset_top = -168.5
+offset_right = 1201.0
+offset_bottom = 168.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_stripes")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -320.0
+offset_right = 520.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_theme")
+
+[node name="MainColumn" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="Panel/MainColumn"]
+layout_mode = 2
+theme_type_variation = &"HowToPlayLabels"
+text = "SELECT STAGE"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Panel/MainColumn"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Stage1" type="Button" parent="Panel/MainColumn/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HowToPlayButtons"
+focus_neighbor_top = NodePath("../../Back")
+focus_neighbor_bottom = NodePath("../Stage2")
+focus_next = NodePath("../Stage2")
+focus_previous = NodePath("../../Back")
+text = "STAGE 1"
+
+[node name="Stage2" type="Button" parent="Panel/MainColumn/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HowToPlayButtons"
+focus_neighbor_top = NodePath("../Stage1")
+focus_neighbor_bottom = NodePath("../../Back")
+focus_next = NodePath("../../Back")
+focus_previous = NodePath("../Stage1")
+text = "STAGE 2"
+
+[node name="Back" type="Button" parent="Panel/MainColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HowToPlayButtons"
+focus_neighbor_top = NodePath("../Buttons/Stage2")
+focus_neighbor_bottom = NodePath("../Buttons/Stage1")
+focus_next = NodePath("../Buttons/Stage1")
+focus_previous = NodePath("../Buttons/Stage2")
+text = "BACK"
+
+[connection signal="pressed" from="Panel/MainColumn/Buttons/Stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="Panel/MainColumn/Buttons/Stage2" to="." method="_on_stage_2_pressed"]
+[connection signal="pressed" from="Panel/MainColumn/Back" to="." method="_on_back_pressed"]

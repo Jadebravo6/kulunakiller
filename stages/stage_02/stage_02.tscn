@@ -1,0 +1,437 @@
+[gd_scene format=3 uid="uid://cce4xalqqjeb0"]
+
+[ext_resource type="PackedScene" path="res://stages/_base/base_stage.tscn" id="1_base"]
+[ext_resource type="Script" uid="uid://chva8f5tyj2y4" path="res://stages/stage_02/stage_02.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://dwggpb3s86jlc" path="res://addons/quiver.beat_em_up/utilities/custom_nodes/quiver_fight_room.gd" id="3_fight"]
+[ext_resource type="PackedScene" uid="uid://chmbp4a1d41k0" path="res://stages/stage_01/stage_elements/skyboxes/skybox.tscn" id="3_skybox"]
+[ext_resource type="Script" uid="uid://ut1w0oqhpbgt" path="res://addons/quiver.beat_em_up/utilities/custom_nodes/enemy_spawner/quiver_enemy_spawner.gd" id="4_spawner"]
+[ext_resource type="PackedScene" uid="uid://dn1np486nvsji" path="res://stages/stage_02/stage_elements/buildings/digablo/digablo.tscn" id="5_6o83w"]
+[ext_resource type="Script" uid="uid://di6fglienx800" path="res://addons/quiver.beat_em_up/utilities/custom_nodes/quiver_player_detector.gd" id="5_detector"]
+[ext_resource type="Script" uid="uid://d2qrgealw7c6v" path="res://stages/stage_01/stage01_skybox.gd" id="5_skybox_script"]
+[ext_resource type="PackedScene" uid="uid://2jhcwfmlrylb" path="res://characters/enemies/sargent/sarge.tscn" id="6_sarge"]
+[ext_resource type="Texture2D" uid="uid://bhkui5mbtusgo" path="res://stages/stage_02/stage_elements/buildings/walls/brick_wall/mur.png" id="7_qr1q0"]
+[ext_resource type="Script" uid="uid://dr7wv1nyi1knv" path="res://addons/quiver.beat_em_up/utilities/custom_nodes/enemy_spawner/quiver_spawn_data.gd" id="7_spawn_data"]
+[ext_resource type="Script" uid="uid://dlpgkoxa07fs5" path="res://stages/stage_02/day_cycle_modulate.gd" id="8_daycycle"]
+[ext_resource type="Texture2D" uid="uid://vlkc62w805ks" path="res://stages/stage_02/stage_elements/buildings/cambiste/parapluie.png" id="8_ns650"]
+[ext_resource type="Resource" uid="uid://cf424fk4f5263" path="res://stages/_base/day_cycle_data.tres" id="9_daydata"]
+[ext_resource type="Texture2D" uid="uid://chvo8hkuc5rmc" path="res://stages/stage_02/stage_elements/buildings/cambiste/mesa.png" id="9_qr1q0"]
+[ext_resource type="Texture2D" uid="uid://beqeovtjrlnvu" path="res://stages/stage_02/stage_elements/buildings/vehicle/207.png" id="10_0q30n"]
+[ext_resource type="Texture2D" uid="uid://b36sudj0iy17m" path="res://stages/stage_02/stage_elements/buildings/pipes/poteau.png" id="10_3rtyb"]
+[ext_resource type="Script" uid="uid://iydphvclbgwc" path="res://addons/quiver.beat_em_up/utilities/custom_nodes/quiver_sprite_repeater.gd" id="10_repeater"]
+[ext_resource type="Texture2D" uid="uid://b5rnb3agxqxnj" path="res://stages/stage_02/stage_elements/buildings/cambiste/tableau.png" id="10_te31t"]
+[ext_resource type="Texture2D" uid="uid://dlbuxmtbtn27d" path="res://stages/stage_02/stage_elements/decorations/fulu/Gemini_Generated_Image_b4h2a8b4h2a8b4h2-Photoroom.png" id="11_nn068"]
+[ext_resource type="Texture2D" uid="uid://cfa3yyjsq8kgk" path="res://stages/stage_02/stage_elements/pavement/solestage2.png" id="11_sol"]
+[ext_resource type="Texture2D" uid="uid://br0v18b0saqrh" path="res://stages/stage_02/stage_elements/buildings/vehicle/ist.png" id="12_l6875"]
+[ext_resource type="Texture2D" uid="uid://bgibrkw1wki63" path="res://stages/stage_02/stage_elements/buildings/pharmacie/pharmacie.png" id="22_l6875"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(13000, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(13000, 80)
+
+[sub_resource type="Resource" id="SpawnData_sarge_inplace"]
+script = ExtResource("7_spawn_data")
+enemy_scene = ExtResource("6_sarge")
+spawn_mode = 1
+use_spawner_position = true
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_detector"]
+b = Vector2(0, 900)
+
+[node name="Stage_02" unique_id=1486660259 instance=ExtResource("1_base")]
+script = ExtResource("2_script")
+
+[node name="DayCycleModulate" type="CanvasModulate" parent="." index="0" unique_id=1122483163]
+color = Color(1, 0.972549, 0.917647, 1)
+script = ExtResource("8_daycycle")
+day_cycle_data = ExtResource("9_daydata")
+
+[node name="SkyboxLayer" parent="Background" index="0"]
+follow_viewport_enabled = false
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="Background/SkyboxLayer" index="0" unique_id=796310697]
+motion_scale = Vector2(0, 1)
+
+[node name="Skybox" parent="Background/SkyboxLayer/ParallaxLayer1" index="0" unique_id=2032776706 instance=ExtResource("3_skybox")]
+position = Vector2(-8, -444)
+scale = Vector2(1.86482, 1.86482)
+script = ExtResource("5_skybox_script")
+day_cycle_data = ExtResource("9_daydata")
+is_playing = true
+
+[node name="Pavement" type="Node2D" parent="Background" index="1" unique_id=1027910399]
+position = Vector2(-40, 693)
+script = ExtResource("10_repeater")
+main_texture = ExtResource("11_sol")
+length = 13
+separation = -420
+variations_weights = Array[float]([])
+texture_sequence = Array[int]([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+[node name="Mur2" type="Sprite2D" parent="Background" index="2" unique_id=1282215129]
+position = Vector2(5049.5, 426)
+scale = Vector2(1.0983527, 1)
+texture = ExtResource("7_qr1q0")
+
+[node name="Mur4" type="Sprite2D" parent="Background" index="3" unique_id=1560772214]
+position = Vector2(2793.5002, 426)
+scale = Vector2(1.0983527, 1)
+texture = ExtResource("7_qr1q0")
+
+[node name="Mur3" type="Sprite2D" parent="Background" index="4" unique_id=488876712]
+position = Vector2(7313.5, 426)
+scale = Vector2(1.0983527, 1)
+texture = ExtResource("7_qr1q0")
+
+[node name="Solestage2" type="Sprite2D" parent="Background" index="5" unique_id=1648771883]
+position = Vector2(392, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage3" type="Sprite2D" parent="Background" index="6" unique_id=936051202]
+position = Vector2(1464, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage4" type="Sprite2D" parent="Background" index="7" unique_id=1635065134]
+position = Vector2(2536, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage5" type="Sprite2D" parent="Background" index="8" unique_id=1595648064]
+position = Vector2(3608, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage6" type="Sprite2D" parent="Background" index="9" unique_id=365001134]
+position = Vector2(4680, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage7" type="Sprite2D" parent="Background" index="10" unique_id=1194210787]
+position = Vector2(5752, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage8" type="Sprite2D" parent="Background" index="11" unique_id=1321866708]
+position = Vector2(6824, 816)
+texture = ExtResource("11_sol")
+
+[node name="Solestage9" type="Sprite2D" parent="Background" index="12" unique_id=618404767]
+position = Vector2(7896, 816)
+texture = ExtResource("11_sol")
+
+[node name="Poteau" type="Sprite2D" parent="Background" index="13" unique_id=1091912388]
+position = Vector2(2107, 360.00003)
+scale = Vector2(0.6831666, 0.68549395)
+texture = ExtResource("10_3rtyb")
+
+[node name="Poteau2" type="Sprite2D" parent="Background" index="14" unique_id=195694905]
+position = Vector2(3835.0002, 360.00003)
+scale = Vector2(0.6831666, 0.68549395)
+texture = ExtResource("10_3rtyb")
+
+[node name="Poteau3" type="Sprite2D" parent="Background" index="15" unique_id=1144231167]
+position = Vector2(6004, 360.00003)
+scale = Vector2(0.6831666, 0.68549395)
+texture = ExtResource("10_3rtyb")
+
+[node name="Poteau4" type="Sprite2D" parent="Background" index="16" unique_id=59866326]
+position = Vector2(7444, 360.00003)
+scale = Vector2(0.6831666, 0.68549395)
+texture = ExtResource("10_3rtyb")
+
+[node name="fulu" type="Sprite2D" parent="Background" index="17" unique_id=696594371]
+position = Vector2(3845.9998, 635)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_nn068")
+
+[node name="fulu2" type="Sprite2D" parent="Background" index="18" unique_id=1620525881]
+position = Vector2(4926, 635)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_nn068")
+
+[node name="207" type="Sprite2D" parent="Background" index="19" unique_id=870713652]
+position = Vector2(3120.4734, 514.5)
+scale = Vector2(0.6774554, 0.6774554)
+texture = ExtResource("10_0q30n")
+
+[node name="Ist" type="Sprite2D" parent="Background" index="20" unique_id=1859049077]
+position = Vector2(4560, 545.99994)
+scale = Vector2(0.74609387, 0.74609387)
+texture = ExtResource("12_l6875")
+
+[node name="digablo" parent="Background" index="21" unique_id=655385449 instance=ExtResource("5_6o83w")]
+position = Vector2(1354.9999, 434)
+
+[node name="Pharmacie" type="Sprite2D" parent="Background" index="22" unique_id=1427618407]
+position = Vector2(519.36664, 420.5)
+scale = Vector2(0.7958333, 0.79583335)
+texture = ExtResource("22_l6875")
+
+[node name="Parapluie" type="Sprite2D" parent="Background" index="23" unique_id=1539230610]
+position = Vector2(1973, 412)
+scale = Vector2(0.53515625, 0.5351563)
+texture = ExtResource("8_ns650")
+
+[node name="Tableau" type="Sprite2D" parent="Background/Parapluie" index="0" unique_id=1734604468]
+position = Vector2(611.0366, 325.40588)
+scale = Vector2(0.43378484, 0.43378475)
+texture = ExtResource("10_te31t")
+
+[node name="Mesa" type="Sprite2D" parent="Background/Parapluie" index="1" unique_id=551660180]
+position = Vector2(65.40161, 436.32117)
+scale = Vector2(0.47080287, 0.42518255)
+texture = ExtResource("9_qr1q0")
+
+[node name="Chad" parent="Level/Characters" index="0"]
+position = Vector2(400, 900)
+
+[node name="LevelCamera" parent="Level/Characters/Chad" index="4"]
+limit_top = -200
+limit_right = 12400
+
+[node name="Collisions" parent="Level" index="2"]
+visible = true
+
+[node name="CeilingLimits" type="StaticBody2D" parent="Level/Collisions" index="0" unique_id=649484142]
+position = Vector2(6200, 720)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="Level/Collisions/CeilingLimits" index="0" unique_id=616323652]
+modulate = Color(0, 0.6, 0.7, 1)
+shape = SubResource("RectangleShape2D_ceiling")
+metadata/collision_type = "default"
+
+[node name="BottomLimit" type="StaticBody2D" parent="Level/Collisions" index="1" unique_id=2085997440]
+position = Vector2(6200, 1040)
+collision_layer = 4
+collision_mask = 0
+
+[node name="Bottom" type="CollisionShape2D" parent="Level/Collisions/BottomLimit" index="0" unique_id=1690872393]
+modulate = Color(0, 0.6, 0.7, 1)
+shape = SubResource("RectangleShape2D_floor")
+metadata/collision_type = "default"
+
+[node name="FightRoom1" type="ReferenceRect" parent="FightRooms" index="0" unique_id=1909245299]
+offset_top = -201.0
+offset_right = 2200.0
+offset_bottom = 1099.0
+border_width = 8.0
+script = ExtResource("3_fight")
+limit_top = -201
+limit_right = 2200
+limit_bottom = 1099
+zoom = 0.9
+after_fight_use_new_room = true
+after_fight_limit_left = 0
+after_fight_limit_top = -200
+after_fight_limit_right = 3600
+after_fight_limit_bottom = 1100
+after_fight_zoom = 0.9
+after_fight_transition_duration = 0.8
+preview_camera = true
+preview_camera_color = Color(0.29411766, 0, 0.50980395, 1)
+preview_after_room = true
+preview_after_color = Color(0, 0.5019608, 0.5019608, 1)
+
+[node name="EnemySpawner" type="Marker2D" parent="FightRooms/FightRoom1" index="0" unique_id=1826109345]
+position = Vector2(1600, 1100)
+script = ExtResource("4_spawner")
+path_spawn_parent = NodePath("../../../Level/Characters")
+spawn_waves = [[SubResource("SpawnData_sarge_inplace")]]
+
+[node name="PlayerDetector" type="Area2D" parent="FightRooms/FightRoom1" index="1" unique_id=1426140861]
+position = Vector2(900, 700)
+collision_layer = 0
+monitorable = false
+script = ExtResource("5_detector")
+path_fight_room = NodePath("..")
+paths_enemy_spawners = Array[NodePath]([NodePath("../EnemySpawner")])
+metadata/collision_type = "player_detector"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FightRooms/FightRoom1/PlayerDetector" index="0" unique_id=688769317]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("SegmentShape2D_detector")
+metadata/collision_type = "player_detector"
+
+[node name="FightRoom2" type="ReferenceRect" parent="FightRooms" index="1" unique_id=54289321]
+unique_name_in_owner = true
+offset_left = 2400.0
+offset_top = -200.0
+offset_right = 5000.0
+offset_bottom = 1100.0
+border_width = 8.0
+script = ExtResource("3_fight")
+limit_left = 2400
+limit_top = -200
+limit_right = 5000
+limit_bottom = 1100
+zoom = 0.9
+after_fight_use_new_room = true
+after_fight_limit_left = 2400
+after_fight_limit_top = -200
+after_fight_limit_right = 6400
+after_fight_limit_bottom = 1100
+after_fight_zoom = 0.9
+after_fight_transition_duration = 0.8
+preview_camera = true
+preview_camera_color = Color(0.29411766, 0, 0.50980395, 1)
+preview_after_room = true
+preview_after_color = Color(0, 0.5019608, 0.5019608, 1)
+
+[node name="PlayerDetector" type="Area2D" parent="FightRooms/FightRoom2" index="0" unique_id=983719848]
+position = Vector2(300, 700)
+collision_layer = 0
+monitorable = false
+script = ExtResource("5_detector")
+path_fight_room = NodePath("..")
+paths_enemy_spawners = Array[NodePath]([NodePath("../EnemySpawner1"), NodePath("../EnemySpawner2")])
+metadata/collision_type = "player_detector"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FightRooms/FightRoom2/PlayerDetector" index="0" unique_id=1020397175]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("SegmentShape2D_detector")
+metadata/collision_type = "player_detector"
+
+[node name="EnemySpawner1" type="Marker2D" parent="FightRooms/FightRoom2" index="1" unique_id=2045204076 groups=["fight_2_spawner"]]
+position = Vector2(1800, 1100)
+script = ExtResource("4_spawner")
+path_spawn_parent = NodePath("../../../Level/Characters")
+spawn_waves = [[SubResource("SpawnData_sarge_inplace")], [SubResource("SpawnData_sarge_inplace")]]
+
+[node name="EnemySpawner2" type="Marker2D" parent="FightRooms/FightRoom2" index="2" unique_id=1804402994 groups=["fight_2_spawner"]]
+position = Vector2(1200, 1120)
+script = ExtResource("4_spawner")
+path_spawn_parent = NodePath("../../../Level/Characters")
+spawn_waves = [[SubResource("SpawnData_sarge_inplace")], [SubResource("SpawnData_sarge_inplace")]]
+
+[node name="FightRoom3" type="ReferenceRect" parent="FightRooms" index="2" unique_id=2078319773]
+offset_left = 5200.0
+offset_top = -200.0
+offset_right = 7600.0
+offset_bottom = 1100.0
+border_width = 8.0
+script = ExtResource("3_fight")
+limit_left = 5200
+limit_top = -200
+limit_right = 7600
+limit_bottom = 1100
+zoom = 0.9
+after_fight_use_new_room = true
+after_fight_limit_left = 5200
+after_fight_limit_top = -200
+after_fight_limit_right = 9000
+after_fight_limit_bottom = 1100
+after_fight_zoom = 0.9
+after_fight_transition_duration = 0.8
+preview_camera = true
+preview_camera_color = Color(0.29411766, 0, 0.50980395, 1)
+preview_after_room = true
+preview_after_color = Color(0, 0.5019608, 0.5019608, 1)
+
+[node name="PlayerDetector" type="Area2D" parent="FightRooms/FightRoom3" index="0" unique_id=2027281403]
+position = Vector2(300, 700)
+collision_layer = 0
+monitorable = false
+script = ExtResource("5_detector")
+path_fight_room = NodePath("..")
+paths_enemy_spawners = Array[NodePath]([NodePath("../EnemySpawner")])
+metadata/collision_type = "player_detector"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FightRooms/FightRoom3/PlayerDetector" index="0" unique_id=176984849]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("SegmentShape2D_detector")
+metadata/collision_type = "player_detector"
+
+[node name="EnemySpawner" type="Marker2D" parent="FightRooms/FightRoom3" index="1" unique_id=937487743]
+position = Vector2(1600, 1100)
+script = ExtResource("4_spawner")
+path_spawn_parent = NodePath("../../../Level/Characters")
+spawn_waves = [[SubResource("SpawnData_sarge_inplace"), SubResource("SpawnData_sarge_inplace"), SubResource("SpawnData_sarge_inplace")]]
+
+[node name="FightRoom4" type="ReferenceRect" parent="FightRooms" index="3" unique_id=1242281488]
+offset_left = 7800.0
+offset_top = -200.0
+offset_right = 10000.0
+offset_bottom = 1100.0
+border_width = 8.0
+script = ExtResource("3_fight")
+limit_left = 7800
+limit_top = -200
+limit_right = 10000
+limit_bottom = 1100
+zoom = 0.9
+after_fight_use_new_room = true
+after_fight_limit_left = 7800
+after_fight_limit_top = -200
+after_fight_limit_right = 11400
+after_fight_limit_bottom = 1100
+after_fight_zoom = 0.9
+after_fight_transition_duration = 0.8
+preview_camera = true
+preview_camera_color = Color(0.29411766, 0, 0.50980395, 1)
+preview_after_room = true
+preview_after_color = Color(0, 0.5019608, 0.5019608, 1)
+
+[node name="PlayerDetector" type="Area2D" parent="FightRooms/FightRoom4" index="0" unique_id=779440995]
+position = Vector2(300, 700)
+collision_layer = 0
+monitorable = false
+script = ExtResource("5_detector")
+path_fight_room = NodePath("..")
+paths_enemy_spawners = Array[NodePath]([NodePath("../EnemySpawner")])
+metadata/collision_type = "player_detector"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FightRooms/FightRoom4/PlayerDetector" index="0" unique_id=152887202]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("SegmentShape2D_detector")
+metadata/collision_type = "player_detector"
+
+[node name="EnemySpawner" type="Marker2D" parent="FightRooms/FightRoom4" index="1" unique_id=1983293213]
+position = Vector2(1400, 1100)
+script = ExtResource("4_spawner")
+path_spawn_parent = NodePath("../../../Level/Characters")
+spawn_waves = [[SubResource("SpawnData_sarge_inplace"), SubResource("SpawnData_sarge_inplace")]]
+
+[node name="FightRoom5" type="ReferenceRect" parent="FightRooms" index="4" unique_id=1410152618]
+unique_name_in_owner = true
+offset_left = 10200.0
+offset_top = -200.0
+offset_right = 12400.0
+offset_bottom = 1100.0
+border_width = 8.0
+script = ExtResource("3_fight")
+limit_left = 10200
+limit_top = -200
+limit_right = 12400
+limit_bottom = 1100
+zoom = 0.8727273
+after_fight_use_new_room = false
+preview_camera = true
+preview_camera_color = Color(0.29411766, 0, 0.50980395, 1)
+preview_after_room = true
+preview_after_color = Color(0, 0.5019608, 0.5019608, 1)
+
+[node name="PlayerDetector" type="Area2D" parent="FightRooms/FightRoom5" index="0" unique_id=2032266270]
+position = Vector2(300, 700)
+collision_layer = 0
+monitorable = false
+script = ExtResource("5_detector")
+path_fight_room = NodePath("..")
+paths_enemy_spawners = Array[NodePath]([NodePath("../EnemySpawner")])
+metadata/collision_type = "player_detector"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FightRooms/FightRoom5/PlayerDetector" index="0" unique_id=961911603]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("SegmentShape2D_detector")
+metadata/collision_type = "player_detector"
+
+[node name="EnemySpawner" type="Marker2D" parent="FightRooms/FightRoom5" index="1" unique_id=767380448]
+position = Vector2(1400, 1100)
+script = ExtResource("4_spawner")
+path_spawn_parent = NodePath("../../../Level/Characters")
+spawn_waves = [[SubResource("SpawnData_sarge_inplace"), SubResource("SpawnData_sarge_inplace")], [SubResource("SpawnData_sarge_inplace"), SubResource("SpawnData_sarge_inplace"), SubResource("SpawnData_sarge_inplace")]]
+
+[connection signal="all_waves_completed" from="FightRooms/FightRoom1/EnemySpawner" to="FightRooms/FightRoom1" method="setup_after_fight_room"]
+[connection signal="all_waves_completed" from="FightRooms/FightRoom2/EnemySpawner1" to="." method="_on_fight_2_spawner_all_waves_completed"]
+[connection signal="all_waves_completed" from="FightRooms/FightRoom2/EnemySpawner2" to="." method="_on_fight_2_spawner_all_waves_completed"]
+[connection signal="all_waves_completed" from="FightRooms/FightRoom3/EnemySpawner" to="FightRooms/FightRoom3" method="setup_after_fight_room"]
+[connection signal="all_waves_completed" from="FightRooms/FightRoom4/EnemySpawner" to="FightRooms/FightRoom4" method="setup_after_fight_room"]
+[connection signal="all_waves_completed" from="FightRooms/FightRoom5/EnemySpawner" to="." method="_on_final_spawner_all_waves_completed"]

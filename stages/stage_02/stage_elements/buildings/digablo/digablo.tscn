@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dn1np486nvsji"]
+
+[ext_resource type="Texture2D" uid="uid://cswnt5mube0ll" path="res://stages/stage_02/stage_elements/buildings/digablo/kioske.png" id="1_70k4h"]
+
+[node name="digablo" type="Node2D" unique_id=655385449]
+
+[node name="Kioske" type="Sprite2D" parent="." unique_id=820949674]
+scale = Vector2(0.6661422, 0.53423285)
+texture = ExtResource("1_70k4h")

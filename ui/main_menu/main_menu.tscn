@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cl5t3fr12656g"]
+[gd_scene load_steps=32 format=3 uid="uid://cl5t3fr12656g"]
 
 [ext_resource type="Texture2D" uid="uid://dgru1cbuc5jyy" path="res://ui/main_menu/pngs/bg.png" id="1_3ligk"]
 [ext_resource type="Script" path="res://ui/main_menu/main_menu.gd" id="1_xf06u"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://go8x140wwobw" path="res://ui/main_menu/pngs/logo.png" id="6_xunx4"]
 [ext_resource type="Texture2D" uid="uid://dn4cgulexbpd8" path="res://ui/main_menu/pngs/buttons/start_game_normal.png" id="9_ds5cc"]
 [ext_resource type="PackedScene" uid="uid://55q23muar30r" path="res://ui/how_to_play/how_to_play.tscn" id="9_ohwlc"]
+[ext_resource type="PackedScene" path="res://ui/level_select/level_select.tscn" id="9_lvlsel"]
 [ext_resource type="Texture2D" uid="uid://c57jdcqsvpc47" path="res://ui/main_menu/pngs/buttons/start_game_pressed.png" id="10_jjw2h"]
 [ext_resource type="Texture2D" uid="uid://nkop1d7eltev" path="res://ui/main_menu/pngs/buttons/start_game_hover.png" id="11_eb3x3"]
 [ext_resource type="BitMap" uid="uid://7fio68fkg246" path="res://ui/main_menu/pngs/buttons/start_game_mask_normal.png" id="12_s7lr0"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cuq1x0yy3plk5" path="res://ui/main_menu/pngs/buttons/quit_hover.png" id="22_qrv77"]
 [ext_resource type="BitMap" uid="uid://ypgrjkvrf2x4" path="res://ui/main_menu/pngs/buttons/quit_mask_normal.png" id="22_vs4uq"]
 [ext_resource type="BitMap" uid="uid://b82vv7y25nrwr" path="res://ui/main_menu/pngs/buttons/quit_mask_big.png" id="23_giihp"]
+[ext_resource type="Theme" uid="uid://brlect5oi7d4w" path="res://ui/_base/theme_template.tres" id="24_theme"]
 
 [sub_resource type="Animation" id="Animation_bamca"]
 length = 0.001
@@ -437,11 +439,54 @@ script = ExtResource("13_wno6g")
 mask_normal = ExtResource("22_vs4uq")
 mask_hover = ExtResource("23_giihp")
 
+[node name="StageButtons" type="VBoxContainer" parent="."]
+z_index = 10
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 640.0
+offset_right = 1780.0
+offset_bottom = 900.0
+theme = ExtResource("24_theme")
+theme_override_constants/separation = 8
+
+[node name="StageLabel" type="Label" parent="StageButtons"]
+layout_mode = 2
+theme_type_variation = &"HowToPlayLabels"
+theme_override_font_sizes/font_size = 40
+text = "STAGES"
+horizontal_alignment = 1
+
+[node name="Stage1" type="Button" parent="StageButtons"]
+layout_mode = 2
+theme_type_variation = &"HowToPlayButtons"
+theme_override_font_sizes/font_size = 48
+focus_neighbor_top = NodePath("../Stage2")
+focus_neighbor_bottom = NodePath("../Stage2")
+text = "STAGE 1"
+
+[node name="Stage2" type="Button" parent="StageButtons"]
+layout_mode = 2
+theme_type_variation = &"HowToPlayButtons"
+theme_override_font_sizes/font_size = 48
+focus_neighbor_top = NodePath("../Stage1")
+focus_neighbor_bottom = NodePath("../Stage1")
+text = "STAGE 2"
+
 [node name="HowToPlay" parent="." instance=ExtResource("9_ohwlc")]
 visible = false
 layout_mode = 1
+z_index = 20
+
+[node name="LevelSelect" parent="." instance=ExtResource("9_lvlsel")]
+visible = false
+layout_mode = 1
+z_index = 20
 
 [connection signal="pressed" from="MenuButtons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MenuButtons/HowToPlay" to="." method="_on_how_to_play_pressed"]
 [connection signal="pressed" from="MenuButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="StageButtons/Stage1" to="." method="_on_stage_1_pressed"]
+[connection signal="pressed" from="StageButtons/Stage2" to="." method="_on_stage_2_pressed"]
 [connection signal="how_to_play_closed" from="HowToPlay" to="." method="_on_how_to_play_how_to_play_closed"]
+[connection signal="level_chosen" from="LevelSelect" to="." method="_on_level_select_level_chosen"]
+[connection signal="level_select_closed" from="LevelSelect" to="." method="_on_level_select_level_select_closed"]

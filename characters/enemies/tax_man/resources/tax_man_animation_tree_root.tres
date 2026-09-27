@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=93 format=3 uid="uid://ccthcaakgim08"]
+[gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://ccthcaakgim08"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gghh2"]
 animation = &"tax_man/attack_area_right"
@@ -9,8 +9,10 @@ animation = &"tax_man/attack_area_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_c4ia5"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_gghh2")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_mfju1")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nhnkf"]
 animation = &"tax_man/attack_combo_left"
@@ -21,8 +23,10 @@ animation = &"tax_man/attack_combo_right"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_efp5s"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_nhnkf")
 blend_point_0/pos = -0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_7w2lm")
 blend_point_1/pos = 0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wojc3"]
 animation = &"tax_man/dash_attack_begin_right"
@@ -33,8 +37,10 @@ animation = &"tax_man/dash_attack_begin_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_7dj13"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_wojc3")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_l5v70")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ev32h"]
 animation = &"tax_man/dash_attack_end_right"
@@ -45,8 +51,10 @@ animation = &"tax_man/dash_attack_end_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_roylf"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_ev32h")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_w3euk")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i7xi1"]
 animation = &"tax_man/defeat_explosion_right"
@@ -57,8 +65,10 @@ animation = &"tax_man/defeat_explosion_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_b24e1"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_i7xi1")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_ooyic")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n26d0"]
 animation = &"tax_man/hurt_knockout_right"
@@ -69,8 +79,10 @@ animation = &"tax_man/hurt_knockout_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wsq35"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_n26d0")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_72e7c")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2ssgv"]
 animation = &"tax_man/hurt_light_right"
@@ -81,8 +93,10 @@ animation = &"tax_man/hurt_light_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_jrtbq"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_2ssgv")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_mcq1u")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pq0l2"]
 animation = &"tax_man/hurt_medium_right"
@@ -93,8 +107,10 @@ animation = &"tax_man/hurt_medium_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_noude"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_pq0l2")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_hx40x")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ba74a"]
 animation = &"tax_man/idle_right"
@@ -105,8 +121,10 @@ animation = &"tax_man/idle_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_si5hg"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_ba74a")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_4ccge")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1eeyq"]
 animation = &"tax_man/knockout_kneeled_right"
@@ -117,8 +135,10 @@ animation = &"tax_man/knockout_kneeled_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_vwaud"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_1eeyq")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_vgthd")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a0yxc"]
 animation = &"tax_man/retaliate_right"
@@ -129,8 +149,10 @@ animation = &"tax_man/retaliate_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_3tmlk"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_a0yxc")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_8jfau")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_spt26"]
 animation = &"tax_man/seated_drink_right"
@@ -141,8 +163,10 @@ animation = &"tax_man/seated_drink_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_46deq"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_spt26")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_1n6n4")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wrlnf"]
 animation = &"tax_man/seated_engage_right"
@@ -153,8 +177,10 @@ animation = &"tax_man/seated_engage_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_1u0fq"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_wrlnf")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_n5rra")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fmrus"]
 animation = &"tax_man/seated_laugh_right"
@@ -165,8 +191,10 @@ animation = &"tax_man/seated_laugh_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_mtd6a"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_fmrus")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_clggl")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wlkgo"]
 animation = &"tax_man/seated_reveal_right"
@@ -177,8 +205,10 @@ animation = &"tax_man/seated_reveal_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_ljj22"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_wlkgo")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_p1w7n")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_82byd"]
 animation = &"tax_man/seated_swirl_right"
@@ -189,8 +219,10 @@ animation = &"tax_man/seated_swirl_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_nwmg4"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_82byd")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_44yvq")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7sm4e"]
 animation = &"tax_man/turn_left"
@@ -201,8 +233,10 @@ animation = &"tax_man/turn_right"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_8xlto"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_7sm4e")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_tja4d")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3m0au"]
 animation = &"tax_man/walk_right"
@@ -213,8 +247,10 @@ animation = &"tax_man/walk_left"
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_0u6n3"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_3m0au")
 blend_point_0/pos = 0.1
+blend_point_0/name = &"0"
 blend_point_1/node = SubResource("AnimationNodeAnimation_fkako")
 blend_point_1/pos = -0.1
+blend_point_1/name = &"1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x84fc"]
 

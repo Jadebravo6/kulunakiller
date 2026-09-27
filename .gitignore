@@ -52,3 +52,10 @@
 # End of https://www.toptal.com/developers/gitignore/api/godot,obsidian,visualstudiocode
 
 export_project.sh
+
+# Built game exports (too large for GitHub)
+/export/**/*.zip
+/export/**/*.exe
+/export/**/*.pck
+/export/**/*.apk
+/export/**/*.aab

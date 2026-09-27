@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=6 format=3 uid="uid://d2vw4ctmhthi7"]
+[gd_resource type="AnimationLibrary" format=3 uid="uid://d2vw4ctmhthi7"]
 
 [sub_resource type="Animation" id="Animation_ronrm"]
 length = 0.001
@@ -561,9 +561,9 @@ tracks/8/keys = {
 
 [resource]
 _data = {
-"RESET": SubResource("Animation_ronrm"),
-"closed": SubResource("Animation_agk5i"),
-"open_player_on_left": SubResource("Animation_kg3a3"),
-"open_player_on_right": SubResource("Animation_l2ctp"),
-"opening": SubResource("Animation_ih7cx")
+&"RESET": SubResource("Animation_ronrm"),
+&"closed": SubResource("Animation_agk5i"),
+&"open_player_on_left": SubResource("Animation_kg3a3"),
+&"open_player_on_right": SubResource("Animation_l2ctp"),
+&"opening": SubResource("Animation_ih7cx")
 }
